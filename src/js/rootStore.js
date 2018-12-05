@@ -6,7 +6,7 @@ import promiseMiddleWare from 'redux-promise-middleware';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  composeEnahncers(applyMiddleware(thunk, promiseMiddleWare()))
+  composeEnhancers(applyMiddleware(thunk, promiseMiddleWare()))
 );
 
 export default store;

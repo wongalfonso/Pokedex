@@ -4,10 +4,11 @@ module.exports = {
   entry: {
     javascript: './src/js/index.jsx'
   },
-  outpute: {
+  output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'dist')
   },
+  devtool: 'source-map',
   resolve: {
     alias: {
       react: path.join(__dirname, 'node_modules', 'react')

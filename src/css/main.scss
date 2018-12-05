@@ -1,0 +1,56 @@
+@import './variables.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;  
+}
+
+html {
+  font-size: .625em;
+}
+
+//layout
+
+.container {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: $sm) {
+  .container {
+    max-width: 54rem;
+  }
+}
+@media screen and (min-width: $sm) and (max-width: $md) {
+  .container {
+    min-width: 54rem;
+    max-width: 68rem;
+  }
+}
+
+@media screen and (min-width: $md) and (max-width: $lg) {
+  .container {
+    min-width: 68rem;
+    max-width: 85rem;
+  }
+}
+
+@media screen and (min-width: $lg) and (max-width: $xl) {
+  .container {
+    min-width: 80rem;
+    max-width: 95rem;
+  }
+}
+@media screen and (min-width: $xl) {
+  .container {
+    min-width: 95rem;
+    max-width: 120rem;
+  }
+}

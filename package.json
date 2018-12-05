@@ -2,10 +2,11 @@
   "name": "pokedex",
   "version": "1.0.0",
   "description": "Code Challenge",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "start": "npm run build && node server/index.js",
-    "dev": "webpack --w",
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack --w --config webpack.dev.js",
     "server": "nodemon server/index.js"
   },
   "author": "Alfonso Wong",
@@ -30,8 +31,8 @@
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
-    "babel-preset-2017": "0.0.0",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.1",
     "node-sass": "^4.10.0",
