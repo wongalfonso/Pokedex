@@ -3,59 +3,69 @@
   min-height: 100vh;
   min-width: 100vw;
   padding: 5rem 0;
-  background: linear-gradient(to left, rgb(184, 184, 4), rgb(223, 223, 3));
+  
   .pokemon-container {    
-    min-height: 90vh;   
-    max-width: 70rem !important; 
-    min-width: 32rem;
-    background: linear-gradient(to right, rgb(223, 5, 5), rgb(242, 86, 86), rgb(206, 53, 53), rgb(238, 40, 40));
-    padding: 5rem;
-    .poke-header {
-      font-size: 6.5rem;
-      margin-top: .2rem;
-      border-top: solid 1rem rgb(194, 194, 3);
-      justify-content: space-around;
-      display: flex;  
-      .poke-name {
-        font-weight: bold;
-      }    
-      .poke-number {
-        color: #ffaeae;
-      }
-    }
-    .poke-image {
-      background-color: rgb(194, 194, 3);
-      padding: 2rem;
-      box-shadow: 2px 3px 10px 5px;
-      text-align: center;
-      &-container {
-        background: linear-gradient(to right, rgb(223, 5,5),#610808);
-        img {
-          min-width: 36rem;
+    background: linear-gradient(to left, rgb(184, 184, 4), rgb(223, 223, 3));
+    padding: 2rem;
+    max-width: 72rem !important;
+    min-width: 34rem;
+    border-radius: .8rem;
+    .poke-card {
+      margin: 0 auto;
+      min-height: 90vh;   
+      max-width: 70rem; 
+      min-width: 32rem;
+      padding: 5rem;
+      background: linear-gradient(to right, rgb(223, 5, 5), rgb(242, 86, 86), rgb(206, 53, 53), rgb(238, 40, 40));
+      box-shadow: 3px 1px 0px 6px;
+      .poke-header {
+        font-size: 6.5rem;
+        margin-top: .2rem;
+        border-top: solid 1rem rgb(194, 194, 3);
+        justify-content: space-around;
+        display: flex;  
+        .poke-name {
+          font-weight: bold;
+        }    
+        .poke-number {
+          color: #ffaeae;
         }
       }
-    }
-    .poke-info {
-      margin-top: 2rem;
-      padding: 0 2rem;
-      &-header {        
-        font-size: 3.3rem;
-        font-weight: 600;
-        text-align: center;
+      .poke-image {
         background-color: rgb(194, 194, 3);
-        box-shadow: 4px 2px 4px 2px;
-        margin-bottom: 2rem;
-      }
-      &-body {
-        border-bottom: solid black 3px;
-        &-header {
-          font-size: 4rem;
-          font-weight: 700;
-          color: purple;
+        padding: 2rem;
+        box-shadow: 2px 3px 10px 5px;
+        text-align: center;
+        &-container {
+          background: linear-gradient(to right, rgb(223, 5,5),#610808);
+          img {
+            min-width: 36rem;
+          }
         }
-        &-info {
-          font-size:3.5rem;
-
+      }
+      .poke-info {
+        margin-top: 2rem;
+        padding: 0 2rem;
+        &-header {        
+          font-size: 3.3rem;
+          font-weight: 600;
+          text-align: center;
+          background-color: rgb(194, 194, 3);
+          box-shadow: 4px 2px 4px 2px;
+          margin-bottom: 2rem;
+        }
+        &-body {
+          border-bottom: solid black 3px;
+          text-align: center;
+          &-header {
+            font-size: 4rem;
+            font-weight: 700;
+            color: purple;
+          }
+          &-info {
+            font-size:3.5rem;
+  
+          }
         }
       }
     }

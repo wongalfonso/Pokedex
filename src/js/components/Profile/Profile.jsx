@@ -13,35 +13,37 @@ const Profile = props => {
   console.log(abil);
   return (
     <div className="full-page">
-      <div className = 'container pokemon-container'>        
-        <div className="poke-header">    
-          <span className = 'poke-name'>{pokemon.name}</span>
-          <span className = 'poke-number'>{pokemon.base_experience}</span>
-        </div>
-        <div className="poke-image">
-          <div className="poke-image-container">
-            <Img src = {url}/>
+      <div className = 'container pokemon-container'>  
+        <div className="poke-card">
+          <div className="poke-header">    
+            <span className = 'poke-name'>{pokemon.name}</span>
+            <span className = 'poke-number'>{pokemon.base_experience}</span>
           </div>
-        </div>
-        <div className="poke-info">
-          <div className="poke-info-header">
-            <span><i>Height: {pokemon.height} Weight: {pokemon.weight}</i>
-            </span>
-          </div>
-          <div className="poke-info-body">
-            <div className="poke-info-body-header">
-              Pokémon Abilities
-            </div>
-            <div className="poke-info-body-info">
-              {abil.map((name, i) => {
-                const tag = name.ability && name.ability.name ? name.ability.name : null;                
-                return (
-                  <div key = {i}>{tag}</div>
-                )
-              })}
+          <div className="poke-image">
+            <div className="poke-image-container">
+              <Img src = {url}/>
             </div>
           </div>
-        </div>
+          <div className="poke-info">
+            <div className="poke-info-header">
+              <span><i>Height: {pokemon.height} Weight: {pokemon.weight}</i>
+              </span>
+            </div>
+            <div className="poke-info-body">
+              <div className="poke-info-body-header">
+                Pokémon Abilities
+              </div>
+              <div className="poke-info-body-info">
+                {abil.map((name, i) => {
+                  const tag = name.ability && name.ability.name ? name.ability.name : null;                
+                  return (
+                    <div key = {i}>{tag}</div>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+        </div>      
       </div>
     </div>
   )
