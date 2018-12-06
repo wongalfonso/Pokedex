@@ -3,9 +3,11 @@
   min-height: 100vh;
   min-width: 100vw;
   padding: 5rem 0;
-  background-color: rgb(223, 223, 3);
+  background: linear-gradient(to left, rgb(184, 184, 4), rgb(223, 223, 3));
   .pokemon-container {    
-    min-height: 90vh;    
+    min-height: 90vh;   
+    max-width: 70rem !important; 
+    min-width: 32rem;
     background: linear-gradient(to right, rgb(223, 5, 5), rgb(242, 86, 86), rgb(206, 53, 53), rgb(238, 40, 40));
     padding: 5rem;
     .poke-header {
@@ -45,6 +47,7 @@
         margin-bottom: 2rem;
       }
       &-body {
+        border-bottom: solid black 3px;
         &-header {
           font-size: 4rem;
           font-weight: 700;
@@ -52,7 +55,7 @@
         }
         &-info {
           font-size:3.5rem;
-          
+
         }
       }
     }

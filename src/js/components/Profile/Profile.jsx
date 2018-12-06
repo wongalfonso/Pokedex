@@ -34,8 +34,7 @@ const Profile = props => {
             </div>
             <div className="poke-info-body-info">
               {abil.map((name, i) => {
-                const tag = name.ability && name.ability.name ? name.ability.name : null;
-                console.log(tag);
+                const tag = name.ability && name.ability.name ? name.ability.name : null;                
                 return (
                   <div key = {i}>{tag}</div>
                 )
