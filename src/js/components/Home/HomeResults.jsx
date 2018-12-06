@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class HomeResults extends Component {  
-  
   renderTable(page){    
     return (
       <div className = 'results'>      

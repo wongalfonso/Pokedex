@@ -13,7 +13,12 @@ export function searchPokemon(name) {
     dispatch({
       type: 'SINGLE_POKEMON_SEARCH',
       payload: getPokemon
-        .then((res) => console.log(res.data))
+        .then((res) => {          
+          return {             
+            pokemon: res.data,
+            input: name            
+          }
+        })
     })
   }
 }
