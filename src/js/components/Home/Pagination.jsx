@@ -64,9 +64,9 @@ for (let i = 0; i < loopLength; i ++) {
       <div className = 'pagination pagination-active'>
         <ul className = 'pagination-ul'>          
           {pageArr.map((num, i) => {     
-            console.log(num == NaN);
+            console.log(page);
             return (
-              (page == num || (num == '<' && page ==1) || num == '...' || (num - 1 == NaN) && (nun == '>')) ? 
+              (page == num || (num == '<' && page ==1) || num == '...' || (page === arrLength) && (num == '>')) ? 
                 <li key = {i} className = 'pagination-ul-li pagination-ul-li-disabled'>
                   <a>{num}</a>
                 </li> :                      
