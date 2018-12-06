@@ -34,7 +34,6 @@ class Home extends Component {
   }
   searchPokemon(url) {
     const { dispatch } = this.props;
-    console.log(url);
     dispatch(searchPokemon(url));
   }
   updatePage(number) {    
@@ -52,7 +51,6 @@ class Home extends Component {
   render() {
     const { currentPage, search } = this.props;
     const page = search[currentPage]; 
-    console.log(page);   
     return (
       <div className="container home-container">
         <div className="home">

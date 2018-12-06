@@ -7,10 +7,8 @@ let something = {back_default: "https://raw.githubusercontent.com/PokeAPI/sprite
 
 const Profile = props => {
   const { pokemon } = props;    
-  console.log(pokemon);
   const url = pokemon.sprites && pokemon.sprites.front_default ? pokemon.sprites.front_default : null;  
   const abil = pokemon.abilities ? pokemon.abilities : [];
-  console.log(abil);
   return (
     <div className="full-page">
       <div className = 'container pokemon-container'>  

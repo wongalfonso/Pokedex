@@ -14,18 +14,18 @@ class Pagination extends Component {
     const { searchLength, currentPage } = this.props;       
     let arrLength = searchLength.length;
     let pageArr = [];
-let loopLength;
-if (currentPage === 0 || currentPage === arrLength) {
-  loopLength = 7  
-  } else if (currentPage === 1 || currentPage === (arrLength - 1)) {
-    loopLength = 8
-  } else if (currentPage === 2 || currentPage === (arrLength - 2)) {
-    loopLength = 9
-  } else if (currentPage === 3 || currentPage === (arrLength - 3)) {
-    loopLength = 10
-  } else if (currentPage > 3 || currentPage < (arrLength - 4)) {
-    loopLength = 11
-  }
+    let loopLength;
+    if (currentPage === 0 || currentPage === arrLength) {
+      loopLength = 7  
+    } else if (currentPage === 1 || currentPage === (arrLength - 1)) {
+      loopLength = 8
+    } else if (currentPage === 2 || currentPage === (arrLength - 2)) {
+      loopLength = 9
+    } else if (currentPage === 3 || currentPage === (arrLength - 3)) {
+      loopLength = 10
+    } else if (currentPage > 3 || currentPage < (arrLength - 4)) {
+      loopLength = 11
+    }
 console.log(arrLength);
 for (let i = 0; i < loopLength; i ++) {
   let pageNumber;
