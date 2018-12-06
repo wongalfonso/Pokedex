@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
+import HomeReducer from './components/Home/HomeReducer';
 
 const rootReducer = combineReducers({ 
-  form: formReducer
+  homeForm: HomeReducer
 });
 
 export default rootReducer;
