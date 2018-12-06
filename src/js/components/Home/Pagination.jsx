@@ -12,21 +12,23 @@ class Pagination extends Component {
   }  
   renderPag() {
     const { searchLength, currentPage } = this.props;       
-    let arrLength = searchLength.length;
+    let arrLength = searchLength.length - 1;
     let pageArr = [];
     let loopLength;
-    if (currentPage === 0 || currentPage === arrLength) {
+    if (currentPage === arrLength) {
+      loopLength = 6
+    } else if (currentPage === 0 || currentPage === (arrLength - 1)) {
       loopLength = 7  
-    } else if (currentPage === 1 || currentPage === (arrLength - 1)) {
+    } else if (currentPage === 1 || currentPage === (arrLength - 2)) {
       loopLength = 8
-    } else if (currentPage === 2 || currentPage === (arrLength - 2)) {
+    } else if (currentPage === 2 || currentPage === (arrLength - 3)) {
       loopLength = 9
-    } else if (currentPage === 3 || currentPage === (arrLength - 3)) {
+    } else if (currentPage === 3 || currentPage === (arrLength - 4)) {
       loopLength = 10
-    } else if (currentPage > 3 || currentPage < (arrLength - 4)) {
+    } else if (currentPage > 3 || currentPage < (arrLength - 5)) {
       loopLength = 11
     }
-console.log(arrLength);
+
 for (let i = 0; i < loopLength; i ++) {
   let pageNumber;
   if (currentPage < arrLength + 1 && currentPage > 4) {
@@ -35,6 +37,7 @@ for (let i = 0; i < loopLength; i ++) {
   } else {
     pageNumber = i;
   }
+
   if (i === 0) {
     pageArr.push('<')
   } else if (i === 1) {
@@ -42,8 +45,9 @@ for (let i = 0; i < loopLength; i ++) {
   } else if ((loopLength == 11 && i == 2 && currentPage - 4 !== 0 && currentPage - 5 !== 0)|| (i == 2 && pageNumber > 3 )) {
     pageArr.push('...');
   } else if (i == loopLength -3 && pageNumber !== arrLength - 1) {
+    console.log(pageNumber);
     pageArr.push('...');
-  } else if (i == loopLength -2) {
+  } else if (i == loopLength -2 && pageNumber !== arrLength) {
     pageArr.push(arrLength);
   } else if (i === loopLength -1) {
     pageArr.push('>');     
@@ -59,12 +63,16 @@ for (let i = 0; i < loopLength; i ++) {
     return (
       <div className = 'pagination pagination-active'>
         <ul className = 'pagination-ul'>          
-          {pageArr.map((num, i) => {             
-            (page == num || (num == '<' && page ==1) || num == '...') ? name = 'pagination-ul-li pagination-ul-li-disabled' : name = 'pagination-ul-li pagination-ul-li-active';            
+          {pageArr.map((num, i) => {     
+            console.log(num == NaN);
             return (
-              <li key = {i} className = { name } onClick = {() => this.props.updatePage(num)}>
-                <a>{num}</a>
-              </li>
+              (page == num || (num == '<' && page ==1) || num == '...' || (num - 1 == NaN) && (nun == '>')) ? 
+                <li key = {i} className = 'pagination-ul-li pagination-ul-li-disabled'>
+                  <a>{num}</a>
+                </li> :                      
+                <li key = {i} className = 'pagination-ul-li pagination-ul-li-active' onClick = {() => this.props.updatePage(num)}>
+                  <a>{num}</a>
+                </li>
             )
           })}
         </ul>

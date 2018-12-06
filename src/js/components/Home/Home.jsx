@@ -38,13 +38,16 @@ class Home extends Component {
   }
   updatePage(number) {    
     const { dispatch, currentPage, searchLength } = this.props;    
+    console.log(number);
+    console.log('current', currentPage)
     if (number == '>') {
       dispatch(changePage(currentPage + 1))
     } else if (number == '<') {
       dispatch(changePage(currentPage - 1))
-    } else if (number == searchLength.length) {
+    } else if (number == searchLength.length - 1) {
       dispatch(changePage(number));
     } else {
+      console.log(number);
       dispatch(changePage(number - 1));
     }
   }
@@ -80,6 +83,7 @@ class Home extends Component {
 }
 
 function mapStateToProps(store) {  
+  console.log(store.homeForm.search);
   return {
     input: store.homeForm.input, 
     currentPage: store.homeForm.currentPage,
