@@ -23,12 +23,17 @@ export default function HomeReducer(state = defaultState, action) {
     case 'POKEMON_SEARCH_FULFILLED': {      
       console.log(payload.searchLength);
       return { 
-        ...state, pending: false, search: payload.search, searchLength : payload.searchLength, currentPage: 1
+        ...state, pending: false, search: payload.search, searchLength : payload.searchLength
       }
-    }v
+    }
     case 'POKEMON_SEARCH_REJECTED': {
       return {
         ...state, pending: false 
+      }
+    }
+    case 'UPDATE_PAGE': {
+      return {
+        ...state, currentPage: payload.page
       }
     }
     default: {

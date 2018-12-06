@@ -46,3 +46,11 @@ export function searchAllPokemon() {
     })
   }
 }
+
+export function changePage(page) {
+  console.log(page);
+  return {
+    type: 'UPDATE_PAGE',
+    payload: { page }
+  }
+}

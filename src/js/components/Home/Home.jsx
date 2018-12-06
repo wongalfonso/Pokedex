@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import HomeForm from './HomeForm';
 import HomeResults from '../HomeResults';
 import Pagination from './Pagination';
-import { searchPokemon, updateInput, searchAllPokemon } from './HomeActions';
+import { searchPokemon, updateInput, searchAllPokemon, changePage } from './HomeActions';
 import Pikachu from '../../../../public/images/Pikachu.png';
 
 class Home extends Component {
@@ -12,6 +12,7 @@ class Home extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.searchAll = this.searchAll.bind(this);
+    this.updatePage = this.updatePage.bind(this);
   }
 
   handleInput(e) {    
@@ -30,10 +31,23 @@ class Home extends Component {
     const { dispatch} = this.props;
     dispatch(searchAllPokemon());
   }
-  selectPage() {
-    const { dispatch } = this.props;
+
+  updatePage(number) {
+    
+    const { dispatch, currentPage, searchLength } = this.props;    
+    if (number == '>') {
+      dispatch(changePage(currentPage + 1))
+    } else if (number == '<') {
+      dispatch(changePage(currentPage - 1))
+    } else if (number == searchLength.length) {
+      dispatch(changePage(number));
+    } else {
+      dispatch(changePage(number - 1));
+    }
   }
   render() {
+    const { currentPage } = this.props;
+    console.log(currentPage);
     return (
       <div className="container home-container">
         <div className="home">
@@ -50,7 +64,9 @@ class Home extends Component {
               all = {this.searchAll }
             />            
           </div>
-          <Pagination/>
+          <Pagination
+            updatePage = { this.updatePage }
+          />
           <HomeResults/>
         </div>
       </div>
@@ -60,7 +76,9 @@ class Home extends Component {
 
 function mapStateToProps(store) {  
   return {
-    input: store.homeForm.input,        
+    input: store.homeForm.input, 
+    currentPage: store.homeForm.currentPage,
+    searchLength: store.homeForm.searchLength,    
   }
 }
 
