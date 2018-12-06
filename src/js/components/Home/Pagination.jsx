@@ -15,18 +15,18 @@ class Pagination extends Component {
     let arrLength = searchLength.length;
     let pageArr = [];
 let loopLength;
-if (currentPage === 0 || currentPage === searchLength) {
+if (currentPage === 0 || currentPage === arrLength) {
   loopLength = 7  
-  } else if (currentPage === 1 || currentPage === arrLength -1) {
+  } else if (currentPage === 1 || currentPage === (arrLength - 1)) {
     loopLength = 8
-  } else if (currentPage === 2 || currentPage === arrLength -2) {
+  } else if (currentPage === 2 || currentPage === (arrLength - 2)) {
     loopLength = 9
-  } else if (currentPage === 3 || currentPage === arrLength -3) {
+  } else if (currentPage === 3 || currentPage === (arrLength - 3)) {
     loopLength = 10
-  } else if (currentPage > 3 || currentPage < arrLength -4) {
+  } else if (currentPage > 3 || currentPage < (arrLength - 4)) {
     loopLength = 11
   }
-
+console.log(arrLength);
 for (let i = 0; i < loopLength; i ++) {
   let pageNumber;
   if (currentPage < arrLength + 1 && currentPage > 4) {
@@ -50,7 +50,12 @@ for (let i = 0; i < loopLength; i ++) {
   } else {
     pageArr.push(pageNumber);
   }
-}    let name, page = currentPage + 1;
+}    let name, page;
+    if ( currentPage === arrLength) {
+      page = currentPage;
+    } else {
+      page = currentPage + 1;
+    }
     return (
       <div className = 'pagination pagination-active'>
         <ul className = 'pagination-ul'>          

@@ -32,8 +32,7 @@ class Home extends Component {
     dispatch(searchAllPokemon());
   }
 
-  updatePage(number) {
-    
+  updatePage(number) {    
     const { dispatch, currentPage, searchLength } = this.props;    
     if (number == '>') {
       dispatch(changePage(currentPage + 1))
