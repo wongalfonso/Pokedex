@@ -8,7 +8,7 @@ export default class HomeForm extends Component {
     <form onSubmit={ submit } className = 'home-form-group'>
       <label> Search all Pokemon</label>    
         <button onClick = {all}
-                className = 'input-group-button-all'                >
+                className = 'input-group-button'>
           Catch Em All
         </button>
     </form>

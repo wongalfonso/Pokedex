@@ -6,10 +6,10 @@ class HomeResults extends Component {
   renderTable(page){    
     return (
       <div className = 'results'>      
-      <table className = 'results-table'>
+      <table className = 'results-table results-table--active'>
         <thead>
         <tr>
-            <th> Name </th>            
+            <th> Pokemons </th>            
         </tr>
         </thead>
         <tbody>          
@@ -32,7 +32,8 @@ class HomeResults extends Component {
 
   renderEmpty(){
     return (
-      <div>
+      <div className = 'results'>
+        <table className = 'results-table'></table>
       </div> 
     )
   }
