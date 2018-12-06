@@ -1,8 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
 const axios = require('axios');
-const https = require('https'); 
-const rp = require('request-promise');
 const app = express();
 
 app.use(morgan('dev'));
@@ -14,16 +12,16 @@ const options = {
     "User-Agent" : "BastionDiscordBot (https://bastionbot.org, 6.3.0)"
   }  
 }
-app.get('/pokemon', (req, res) => {
-  console.log('yes');
-  axios.get('https://pokeapi.co/api/v2/pokemon').then((response) => {        
-    // console.log(response.data);
+app.get('/pokemon', (req, res) => {  
+  axios.get('https://pokeapi.co/api/v2/pokemon').then((response) => { 
     res.send(response.data);
   })
-  // .catch((err) => {
-  //   console.log(err);
-  //   res.send(err);
-  // })
 });
-
+app.get('/pokemon/:name', (req, res) => {  
+  const name = req.params.name;  
+  if (name)
+  axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`).then((response) => {    
+    res.send(response.data);
+  })
+})
 module.exports = app;

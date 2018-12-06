@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import HomeForm from './HomeForm';
-import HomeResults from '../HomeResults';
+import HomeResults from './HomeResults';
 import Pagination from './Pagination';
 import { searchPokemon, updateInput, searchAllPokemon, changePage } from './HomeActions';
 import Pikachu from '../../../../public/images/Pikachu.png';
@@ -13,6 +13,7 @@ class Home extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.searchAll = this.searchAll.bind(this);
     this.updatePage = this.updatePage.bind(this);
+    this.searchPokemon = this.searchPokemon.bind(this);
   }
 
   handleInput(e) {    
@@ -31,7 +32,11 @@ class Home extends Component {
     const { dispatch} = this.props;
     dispatch(searchAllPokemon());
   }
-
+  searchPokemon(url) {
+    const { dispatch } = this.props;
+    console.log(url);
+    dispatch(searchPokemon(url));
+  }
   updatePage(number) {    
     const { dispatch, currentPage, searchLength } = this.props;    
     if (number == '>') {
@@ -45,8 +50,9 @@ class Home extends Component {
     }
   }
   render() {
-    const { currentPage } = this.props;
-    console.log(currentPage);
+    const { currentPage, search } = this.props;
+    const page = search[currentPage]; 
+    console.log(page);   
     return (
       <div className="container home-container">
         <div className="home">
@@ -66,7 +72,9 @@ class Home extends Component {
           <Pagination
             updatePage = { this.updatePage }
           />
-          <HomeResults/>
+          <HomeResults
+            searchPoke = { this.searchPokemon }
+          />
         </div>
       </div>
     )
@@ -77,7 +85,8 @@ function mapStateToProps(store) {
   return {
     input: store.homeForm.input, 
     currentPage: store.homeForm.currentPage,
-    searchLength: store.homeForm.searchLength,    
+    searchLength: store.homeForm.searchLength, 
+    search: store.homeForm.search  
   }
 }
 

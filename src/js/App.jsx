@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import Profile from './components/Profile/Profile';
 import Home from './components/Home/Home';
 
 export default class App extends Component {
@@ -8,6 +9,7 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route exact path = '/' component = { Home } />
+          <Route path = '/pokemon/:name' component = { Profile } />
         </Switch>
       </Router>
     )

@@ -88,6 +88,21 @@
       }      
     }
   }
+  .results {
+    margin: 2rem 0;
+    &-table {
+      width: 100%;
+      font-size: 2rem;
+      text-align: center;
+      tbody {
+        tr {
+          td {
+            padding: 1rem;
+          }
+        }
+      }
+    }
+  }
 }
 
 

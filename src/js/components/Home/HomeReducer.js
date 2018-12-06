@@ -20,13 +20,27 @@ export default function HomeReducer(state = defaultState, action) {
         ...state, pending: true
       }
     }
-    case 'POKEMON_SEARCH_FULFILLED': {      
-      console.log(payload.searchLength);
+    case 'POKEMON_SEARCH_FULFILLED': {       
       return { 
         ...state, pending: false, search: payload.search, searchLength : payload.searchLength
       }
     }
     case 'POKEMON_SEARCH_REJECTED': {
+      return {
+        ...state, pending: false 
+      }
+    }
+    case 'SINGLE_POKEMON_SEARCH_PENDING': {
+      return {
+        ...state, pending: true
+      }
+    }
+    case 'SINGLE_POKEMON_SEARCH_FULFILLED': {       
+      return { 
+        ...state, pending: false, search: payload.search, searchLength : payload.searchLength
+      }
+    }
+    case 'SINGLE_POKEMON_SEARCH_REJECTED': {
       return {
         ...state, pending: false 
       }

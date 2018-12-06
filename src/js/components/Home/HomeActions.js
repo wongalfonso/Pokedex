@@ -7,13 +7,13 @@ export function updateInput(input) {
   }
 }
 
-export function searchPokemon(name) {  
+export function searchPokemon(name) {    
   const getPokemon = axios.get(`/pokemon/${name}`)
   return (dispatch) => {
     dispatch({
-      type: 'POKEMON_SEARCH',
+      type: 'SINGLE_POKEMON_SEARCH',
       payload: getPokemon
-        .then((res) => console.log(res))
+        .then((res) => console.log(res.data))
     })
   }
 }
