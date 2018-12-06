@@ -45,7 +45,6 @@ for (let i = 0; i < loopLength; i ++) {
   } else if ((loopLength == 11 && i == 2 && currentPage - 4 !== 0 && currentPage - 5 !== 0)|| (i == 2 && pageNumber > 3 )) {
     pageArr.push('...');
   } else if (i == loopLength -3 && pageNumber !== arrLength - 1) {
-    console.log(pageNumber);
     pageArr.push('...');
   } else if (i == loopLength -2 && pageNumber !== arrLength) {
     pageArr.push(arrLength);
@@ -63,8 +62,7 @@ for (let i = 0; i < loopLength; i ++) {
     return (
       <div className = 'pagination pagination-active'>
         <ul className = 'pagination-ul'>          
-          {pageArr.map((num, i) => {     
-            console.log(page);
+          {pageArr.map((num, i) => {            
             return (
               (page == num || (num == '<' && page ==1) || num == '...' || (page === arrLength) && (num == '>')) ? 
                 <li key = {i} className = 'pagination-ul-li pagination-ul-li-disabled'>
