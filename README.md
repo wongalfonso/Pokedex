@@ -11,11 +11,3 @@ This is a Pokemon database that searches for all Pokemom using the pokeapi.co ap
   npm start for production
   npm run dev && npm run server for dev
   ```
-### Deployment
-  ```
-  Deployed using Heroku for development and AWS for production
-  ```
-### Notes
-  ```
-  Running bcrypt, currently there is a dependency that has vulnerabilities for an older version. Version 3.0.0 works fine but you need node@10.6.0
-  ```
