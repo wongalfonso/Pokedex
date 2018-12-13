@@ -4,7 +4,8 @@ const defaultState = {
   searchLength: [],
   pokemon: [],
   input: '',
-  currentPage: 0
+  currentPage: 0,
+  showResults: false
 };
 
 export default function HomeReducer(state = defaultState, action) {
@@ -14,6 +15,16 @@ export default function HomeReducer(state = defaultState, action) {
     case 'UPDATE_INPUT': {      
       return {
         ...state, input: payload.input
+      }
+    }
+    case 'SHOW_ALL': {      
+      return {
+        ...state, showResults: payload.showResults
+      }
+    }
+    case 'HIDE_ALL': {
+      return {
+        ...state, showResults: payload.showResults
       }
     }
     case 'POKEMON_SEARCH_PENDING': {

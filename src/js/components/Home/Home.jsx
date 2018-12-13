@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import HomeForm from './HomeForm';
 import HomeResults from './HomeResults';
 import Pagination from './Pagination';
-import { searchPokemon, updateInput, searchAllPokemon, changePage } from './HomeActions';
+import { searchPokemon, updateInput, searchAllPokemon, changePage, showAll } from './HomeActions';
 import Pikachu from '../../../../public/images/Pikachu.png';
 
 class Home extends Component {
@@ -15,7 +15,10 @@ class Home extends Component {
     this.updatePage = this.updatePage.bind(this);
     this.searchPokemon = this.searchPokemon.bind(this);
   }
-
+  componentDidMount() {
+    const { dispatch} = this.props;
+    dispatch(searchAllPokemon());
+  }
   handleInput(e) {    
     const value = e.target.value;
     const { dispatch } = this.props;
@@ -30,7 +33,7 @@ class Home extends Component {
   searchAll(e) {
     e.preventDefault();
     const { dispatch} = this.props;
-    dispatch(searchAllPokemon());
+    dispatch(showAll());
   }
   searchPokemon(url) {
     const { dispatch } = this.props;

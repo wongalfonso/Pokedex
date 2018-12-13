@@ -10,6 +10,7 @@ app.use(express.static('dist'));
 
 app.get('/pokemon', (req, res) => {  
   axios.get('https://pokeapi.co/api/v2/pokemon').then((response) => { 
+    console.log(response);
     res.send(response.data);
   })
 });
@@ -20,4 +21,12 @@ app.get('/pokemon/:name', (req, res) => {
     res.send(response.data);
   })
 })
+
+app.get('/pokemon/:num', (req, res) => {
+  const num = req.params.num;
+  axios.get(`https://pokeapi.co/api/v2/ability/${num}`).then((response) => {
+    res.send(response.data);
+  })
+})
+
 module.exports = app;

@@ -39,9 +39,9 @@ class HomeResults extends Component {
   }
 
     render() {
-      const { search, currentPage } = this.props;  
+      const { search, currentPage, showResults } = this.props;  
       return (
-        (search.length > 0) ? this.renderTable(search[currentPage]) : this.renderEmpty()
+        (showResults == true) ? this.renderTable(search[currentPage]) : this.renderEmpty()
       )
     }
 }
@@ -50,7 +50,8 @@ class HomeResults extends Component {
 function mapStateToProps(store) {
   return {
     search: store.homeForm.search,
-    currentPage: store.homeForm.currentPage
+    currentPage: store.homeForm.currentPage,
+    showResults: store.homeForm.showResults,
   }
 }
 

@@ -6,14 +6,25 @@ export function updateInput(input) {
     payload: {input}
   }
 }
-
+export function showAll() {
+  return {
+    type: 'SHOW_ALL',
+    payload: {showResults: true}
+  }
+}
+export function hideAll() {
+  return {
+    type: 'HIDE_ALL',
+    payload: {showResults: false}
+  }
+}
 export function searchPokemon(name) {    
   const getPokemon = axios.get(`/pokemon/${name}`)
   return (dispatch) => {
     dispatch({
       type: 'SINGLE_POKEMON_SEARCH',
       payload: getPokemon
-        .then((res) => {          
+        .then((res) => {                    
           return {             
             pokemon: res.data,
             input: name            
@@ -33,7 +44,7 @@ export function searchAllPokemon() {
           const arr = [];
           const searchLength = [];
           const chunk = 25;
-          const fullLength = Math.ceil(res.data.results.length/chunk);          
+          const fullLength = Math.ceil(res.data.results.length/chunk);
           for (var i= 0; i < fullLength; i ++) {
             let newArr = res.data.results;
             let arrChunk = newArr.splice(0, chunk);                        
