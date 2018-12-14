@@ -10,7 +10,6 @@ app.use(express.static('dist'));
 
 app.get('/pokemon', (req, res) => {  
   axios.get('https://pokeapi.co/api/v2/pokemon').then((response) => { 
-    console.log(response);
     res.send(response.data);
   })
 });

@@ -27,13 +27,19 @@ export function searchPokemon(name) {
         .then((res) => {                    
           return {             
             pokemon: res.data,
-            input: name            
+            input: name,
+            animation: true 
           }
         })
     })
   }
 }
-
+export function stopAnimation() {  
+  return {
+    type: 'STOP_ANIMATION',
+    payload: {animation: false}
+  }
+}
 export function searchAllPokemon() {    
   const getAll = axios.get(`/pokemon`)
   return (dispatch) => {

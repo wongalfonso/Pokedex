@@ -2,26 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import pokeBall from '../../../../public/images/pokeBall.png';
 import backgroundVid from './../../../../public/video/pokemonAnimation.mp4';
+import { stopAnimation } from '../Home/HomeActions';
 
 
 class Animation extends Component {
 
   componentDidMount() {
-
-  }
-
-  ComponentDidUnmount() {
-
+    const { dispatch } = this.props;
+    this.setTimeout(() => {
+      dispatch(stopAnimation());
+    }, 4000);
   }
   render() {
     return (
       <div className = 'animation'>
-        <video id='homeVid' loop autoPlay muted >
+        <video id='pokeVid' loop autoPlay muted >
           <source src={backgroundVid} type='video/mp4' />
         </video>  
-        <div className="pokeBall-container container">
-          <img src = { pokeBall } className = 'pokemon-ball' />
-        </div>
+          <img src = { pokeBall } className = 'pokemon-ball' />       
       </div>
     )
   }
@@ -29,7 +27,7 @@ class Animation extends Component {
 
 function mapStateToProps() {
   return {
-
+    
   }
 }
 

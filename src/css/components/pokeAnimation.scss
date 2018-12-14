@@ -1,18 +1,21 @@
 
 .animation {
-  background: -moz-linear-gradient(top left, green, bottom right, blue );
-  background: repeating-linear-gradient(210deg, rgb(128, 215, 244), blue 5%, lightblue 10%);
+  position: relative;
+  video {
+    width: 100%;
+  }
+  .pokemon-ball {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 20;
+    animation: pokeBall 2s linear 0s forwards;    
+  }
   .pokeBall-container {
     min-width: 100vw;
     min-height: 100vh;
     position: relative;
-    .pokemon-ball {
-      position: absolute;
-      top: 0;
-      left: 0;
-      animation: pokeBall 3s linear 0s forwards;
-      
-    }
+    
   
   }
 
@@ -22,10 +25,10 @@
 @keyframes pokeBall {
   0% {
     height: 20rem;
-    transform: translate(0%, 0%);
+    transform: translate(-200%, -200%);
   }
   100% {
     height: 45rem;
-    transform: translate(75%, 50%);
+    transform: translate(-50%, -50%);
   }
 }
