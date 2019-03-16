@@ -28,7 +28,6 @@ export function searchPokemon(name) {
           return {             
             pokemon: res.data,
             input: name,
-            animation: true 
           }
         })
     })
@@ -37,7 +36,7 @@ export function searchPokemon(name) {
 export function stopAnimation() {  
   return {
     type: 'STOP_ANIMATION',
-    payload: {animation: false}
+    payload: false
   }
 }
 export function searchAllPokemon() {    

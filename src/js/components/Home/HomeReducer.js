@@ -6,7 +6,7 @@ const defaultState = {
   input: '',
   currentPage: 0,
   showResults: false,
-  animation: true
+  animation: false
 };
 
 export default function HomeReducer(state = defaultState, action) {
@@ -45,22 +45,22 @@ export default function HomeReducer(state = defaultState, action) {
     }
     case 'SINGLE_POKEMON_SEARCH_PENDING': {
       return {
-        ...state, pending: true
+        ...state, pending: true, animation: true
       }
     }
-    case 'SINGLE_POKEMON_SEARCH_FULFILLED': {       
+    case 'SINGLE_POKEMON_SEARCH_FULFILLED': {  
       return { 
-        ...state, pending: false, pokemon: payload.pokemon, input: payload.name, animation: payload.animation
-      }
+        ...state, pending: false, pokemon: payload.pokemon, input: payload.name
+      } 
     }
     case 'SINGLE_POKEMON_SEARCH_REJECTED': {
       return {
-        ...state, pending: false 
+        ...state, pending: false, animation: false
       }
     }
     case 'STOP_ANIMATION': { 
       return {
-        ...state, animation: payload.animation
+        ...state, animation: payload
       }
     }
     case 'UPDATE_PAGE': {
